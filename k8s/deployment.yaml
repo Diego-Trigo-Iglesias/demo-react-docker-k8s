@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-react-docker-k8s-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demo-react-docker-k8s-frontend
+  template:
+    metadata:
+      labels:
+        app: demo-react-docker-k8s-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: demo-react-docker-k8s-frontend:local
+        ports:
+        - containerPort: 80
